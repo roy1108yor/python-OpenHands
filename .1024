@@ -1,0 +1,9 @@
+# .1024 Configuration file for project run commands, compilation and debug settings (optional);
+# Any changes made will be auto-saved and take effect immediately.
+# For more information, please refer to the documentation: https://docs.clacky.ai/clacky-workspace/configure
+
+# Command to run when "Run" button clicked
+run_command: docker run -it --rm --pull=always -e SANDBOX_RUNTIME_CONTAINER_IMAGE=docker.all-hands.dev/all-hands-ai/runtime:0.24-nikolaik -e LOG_ALL_EVENTS=true -v /var/run/docker.sock:/var/run/docker.sock -v ~/.openhands-state:/.openhands-state -p 3000:3000 --add-host host.docker.internal:host-gateway --name openhands-app docker.all-hands.dev/all-hands-ai/openhands:0.24
+
+# Command to install or update dependencies, will execute each time a new thread created to ensure dependencies up-to-date
+dependency_command: poetry install
